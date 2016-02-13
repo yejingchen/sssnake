@@ -8,6 +8,7 @@ typedef struct _game_info GameInfo;
 struct _game_info {
 	WINDOW *map;
 	WINDOW *stat;
+	WINDOW *gameover;
 };
 
 typedef struct _game_stat GameStat;
@@ -19,7 +20,7 @@ struct _game_stat {
 struct _win_info {
 	int col;
 	int row;
-} map, stat;
+} map, stat, gameover;
 
 GameInfo gameinfo;
 GameStat gamestat;
@@ -31,5 +32,7 @@ void game_stat_print_highscore(void);
 void game_stat_update(void);
 
 void game_win_info_fill(WINDOW *win, struct _win_info *scr);
+
+void game_over_screen(void);
 
 #endif /* _GAME_H */

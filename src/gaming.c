@@ -39,6 +39,7 @@ gaming_main(void)
 		game_stat_print_highscore();
 
 		gaming();
+		game_over_screen();
 
 		do {
 			c = wgetch(gameinfo.map);
