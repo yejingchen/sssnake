@@ -1,0 +1,74 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+DOWN	src/snake.h	/^	UP, DOWN, LEFT, RIGHT$/;"	e	enum:SnakeDir
+Food	src/food.h	/^typedef struct _food Food;$/;"	t	typeref:struct:_food
+GameInfo	src/game.h	/^typedef struct _game_info GameInfo;$/;"	t	typeref:struct:_game_info
+GameStat	src/game.h	/^typedef struct _game_stat GameStat;$/;"	t	typeref:struct:_game_stat
+LEFT	src/snake.h	/^	UP, DOWN, LEFT, RIGHT$/;"	e	enum:SnakeDir
+RIGHT	src/snake.h	/^	UP, DOWN, LEFT, RIGHT$/;"	e	enum:SnakeDir
+SNAKE_BODY_CHAR	src/snake.h	12;"	d
+SNAKE_DEFAULT_LENGTH	src/snake.h	8;"	d
+SNAKE_HEAD_CHAR	src/snake.h	13;"	d
+SNAKE_TAIL_DEFAULT_X	src/snake.h	10;"	d
+SNAKE_TAIL_DEFAULT_Y	src/snake.h	9;"	d
+STAT_HIGH_COL_PERCENTAGE	src/game.h	5;"	d
+STAT_SCORE_COL_PERCENTAGE	src/game.h	4;"	d
+Snake	src/snake.h	/^typedef struct _snake Snake;$/;"	t	typeref:struct:_snake
+SnakeDir	src/snake.h	/^enum SnakeDir {$/;"	g
+SnakeNode	src/snake.h	/^typedef struct _snake_node SnakeNode;$/;"	t	typeref:struct:_snake_node
+UP	src/snake.h	/^	UP, DOWN, LEFT, RIGHT$/;"	e	enum:SnakeDir
+_FOOD_H	src/food.h	2;"	d
+_GAME_H	src/game.h	2;"	d
+_GAMING_H	src/gaming.h	2;"	d
+_SNAKE_H	src/snake.h	2;"	d
+_food	src/food.c	/^struct _food {$/;"	s	file:
+_game_info	src/game.h	/^struct _game_info {$/;"	s
+_game_stat	src/game.h	/^struct _game_stat {$/;"	s
+_snake	src/snake.h	/^struct _snake {$/;"	s
+_snake_node	src/snake.h	/^struct _snake_node {$/;"	s
+_win_info	src/game.h	/^struct _win_info {$/;"	s
+col	src/food.c	/^	int col;$/;"	m	struct:_food	file:
+col	src/game.h	/^	int col;$/;"	m	struct:_win_info
+col	src/snake.h	/^	int col;$/;"	m	struct:_snake_node
+food_get_col	src/food.c	/^food_get_col(const Food *f)$/;"	f
+food_get_row	src/food.c	/^food_get_row(const Food *f)$/;"	f
+food_new	src/food.c	/^food_new(void)$/;"	f
+food_renew	src/food.c	/^food_renew(Food *food)$/;"	f
+game_info_init	src/game.c	/^game_info_init(GameInfo *gameinfo)$/;"	f
+game_stat_print_highscore	src/game.c	/^game_stat_print_highscore(void)$/;"	f
+game_stat_print_score	src/game.c	/^game_stat_print_score(void)$/;"	f
+game_stat_reset	src/game.c	/^game_stat_reset(GameStat *stat)$/;"	f
+game_stat_update	src/game.c	/^game_stat_update(void)$/;"	f
+game_win_info_fill	src/game.c	/^game_win_info_fill(WINDOW *win, struct _win_info *scr)$/;"	f
+gameinfo	src/game.h	/^GameInfo gameinfo;$/;"	v
+gamestat	src/game.h	/^GameStat gamestat;$/;"	v
+gaming	src/gaming.c	/^gaming(void)$/;"	f
+gaming_get_next_snake_node	src/gaming.c	/^gaming_get_next_snake_node(Snake *snake, enum SnakeDir dir)$/;"	f	file:
+gaming_main	src/gaming.c	/^gaming_main(void)$/;"	f
+head	src/snake.h	/^	SnakeNode *head;$/;"	m	struct:_snake
+highscore	src/game.h	/^	unsigned long highscore;$/;"	m	struct:_game_stat
+length	src/snake.h	/^	int length;$/;"	m	struct:_snake
+main	src/main.c	/^int main()$/;"	f
+map	src/game.h	/^	WINDOW *map;$/;"	m	struct:_game_info
+map	src/game.h	/^} map, stat;$/;"	v	typeref:struct:_win_info
+next	src/snake.h	/^	struct _snake_node *next;$/;"	m	struct:_snake_node	typeref:struct:_snake_node::_snake_node
+prev	src/snake.h	/^	struct _snake_node *prev;$/;"	m	struct:_snake_node	typeref:struct:_snake_node::_snake_node
+row	src/food.c	/^	int row;$/;"	m	struct:_food	file:
+row	src/game.h	/^	int row;$/;"	m	struct:_win_info
+row	src/snake.h	/^	int row;$/;"	m	struct:_snake_node
+score	src/game.h	/^	unsigned long score;$/;"	m	struct:_game_stat
+snake_append_head	src/snake.c	/^snake_append_head(Snake *snake, SnakeNode *node)$/;"	f
+snake_eat_food	src/snake.c	/^snake_eat_food(Snake *snake, Food *food)$/;"	f
+snake_free	src/snake.c	/^snake_free(Snake *snake)$/;"	f
+snake_move	src/snake.c	/^snake_move(Snake *snake, enum SnakeDir dir)$/;"	f
+snake_new	src/snake.c	/^snake_new(void)$/;"	f
+snake_node_free	src/snake.c	/^snake_node_free(SnakeNode *node)$/;"	f
+snake_node_new	src/snake.c	/^snake_node_new(int row, int col)$/;"	f
+snalloc	src/snake.c	/^snalloc(int n)$/;"	f
+stat	src/game.h	/^	WINDOW *stat;$/;"	m	struct:_game_info
+stat	src/game.h	/^} map, stat;$/;"	v	typeref:struct:_win_info
+tail	src/snake.h	/^	SnakeNode *tail;$/;"	m	struct:_snake
