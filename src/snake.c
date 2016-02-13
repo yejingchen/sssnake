@@ -65,7 +65,9 @@ snake_free(Snake *snake)
 
 	node = snake->head;
 	while (node) {
-		mvwdelch(gameinfo.map, node->row, node->col);
+		/* mvwdelch(gameinfo.map, node->row, node->col); */
+		/* don't do above as it is a left-shift */
+		mvwprintw(gameinfo.map, node->row, node->col, " ");
 		next = node->next;
 		snake_node_free(node);
 		node = next;

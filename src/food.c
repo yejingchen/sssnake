@@ -27,8 +27,6 @@ food_new(void)
 void
 food_renew(Food *food)
 {
-	mvwprintw(gameinfo.map, food->row, food->col, " ");
-
 	food->row = 1 + rand() % (map.row - 2);
 	food->col = 1 + rand() % (map.col - 2);
 

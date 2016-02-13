@@ -68,7 +68,6 @@ gaming(void)
 	enum SnakeDir dir = RIGHT;
 
 	Food *food = food_new();
-	food_renew(food);
 
 	while (game_continue) {
 		c = wgetch(gameinfo.map);
@@ -88,6 +87,7 @@ gaming(void)
 		}
 
 		next_move = gaming_get_next_snake_node(snake, dir);
+
 		if (next_move->row == food_get_row(food) &&
 				next_move->col == food_get_col(food)) { /* next is food */
 			snake_eat_food(snake, food);
@@ -96,7 +96,7 @@ gaming(void)
 			goto frame_end;
 		}
 
-		if (next_move->row == 0
+		if (next_move->row == 0 /* next hit frame */
 				|| next_move->row == map.row - 1
 				|| next_move->col == 0
 				|| next_move->col == map.col - 1) {
@@ -104,11 +104,11 @@ gaming(void)
 			goto frame_end;
 		}
 
-		for (SnakeNode *node = snake->head;
+		for (SnakeNode *node = snake->head; /* check if next hit body */
 				node != snake->tail;
 				node = node->next)
 			if (node->row == next_move->row &&
-					node->col == next_move->col) { /* check if next hit body */
+					node->col == next_move->col) {
 				game_continue = 0;
 				goto frame_end;
 			}
