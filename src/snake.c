@@ -83,11 +83,11 @@ snake_append_head(Snake *snake, SnakeNode *node)
 {
 	/* before appending */
 	node->next = snake->head;
-	if (snake->head) {
+	if (snake->length > 0) {
 		snake->head->prev = node;
-	}
-	mvwprintw(gameinfo.map, snake->head->row, snake->head->col, "%c",
+		mvwprintw(gameinfo.map, snake->head->row, snake->head->col, "%c",
 			SNAKE_BODY_CHAR);
+	}
 
 	/* append */
 	snake->head = node;
