@@ -32,8 +32,9 @@ gaming_main(void)
 	int play_again = 1;
 	int c; /* play_again input */
 
+	game_stat_reset(&gamestat);
 	while (play_again) {
-		game_stat_reset(&gamestat);
+		gamestat.score = 0;
 		game_stat_print_score();
 		game_stat_print_highscore();
 
@@ -84,8 +85,6 @@ gaming(void)
 			case 'd':
 				dir = RIGHT;
 				break;
-			default:
-				;
 		}
 
 		next_move = gaming_get_next_snake_node(snake, dir);

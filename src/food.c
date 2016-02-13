@@ -2,6 +2,8 @@
 #include <ncurses.h>
 #include "food.h"
 
+#define FOOD_CHAR ('$')
+
 struct _food {
 	int row;
 	int col;
@@ -17,8 +19,7 @@ food_new(void)
 		exit(EXIT_FAILURE);
 	}
 
-	food->row = 0;
-	food->col = 0;
+	food_renew(food);
 
 	return food;
 }
@@ -26,8 +27,12 @@ food_new(void)
 void
 food_renew(Food *food)
 {
-	food->row = rand() % map.row;
-	food->col = rand() % map.col;
+	mvwprintw(gameinfo.map, food->row, food->col, " ");
+
+	food->row = 1 + rand() % (map.row - 2);
+	food->col = 1 + rand() % (map.col - 2);
+
+	mvwprintw(gameinfo.map, food->row, food->col, "%c", FOOD_CHAR);
 }
 
 int

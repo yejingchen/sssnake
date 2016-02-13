@@ -151,5 +151,7 @@ snake_eat_food(Snake *snake, Food *food)
 	node = snake_node_new(food_get_row(food), food_get_col(food));
 
 	snake_append_head(snake, node);
+
+	gamestat.score += 1;
 	game_stat_update();
 }
