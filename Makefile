@@ -5,7 +5,11 @@ default: sssnake
 sssnake: src/main.c src/snake.c src/food.c src/game.c src/gaming.c
 	${CC} $+ -o $@ -lncurses -Wall
 
-clear: sssnake
-	rm src/sssnake
+debug: src/main.c src/snake.c src/food.c src/game.c src/gaming.c
+	${CC} $+ -o $@ -lncurses -Wall -g
+
+clear:
+	if [ -f sssnake ]; then rm sssnake; fi
+	if [ -f debug ]; then rm debug; fi
 
 .PHONY: clear
