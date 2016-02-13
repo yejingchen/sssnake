@@ -6,8 +6,6 @@ void
 game_info_init(GameInfo *gameinfo)
 {
 	gameinfo->map = newwin(LINES - 1, COLS, 1, 0);
-	wborder(gameinfo->map, '#', '#', '#', '#',
-			'#', '#', '#', '#');
 
 	gameinfo->stat = newwin(1, COLS, 0, 1);
 
@@ -58,6 +56,8 @@ game_win_info_fill(WINDOW *win, struct _win_info *scr)
 void
 game_over_screen(void)
 {
+	werase(gameinfo.gameover);
+
 	const char *overstr = "Game Over!";
 	int overstrlen = strlen(overstr);
 	mvwprintw(gameinfo.gameover, 2, (gameover.col - overstrlen) / 2,

@@ -38,6 +38,9 @@ gaming_main(void)
 		game_stat_print_score();
 		game_stat_print_highscore();
 
+		werase(gameinfo.map);
+		wborder(gameinfo.map, '#', '#', '#', '#',
+			'#', '#', '#', '#');
 		gaming();
 		game_over_screen();
 
@@ -105,7 +108,8 @@ gaming(void)
 			goto frame_end;
 		}
 
-		for (SnakeNode *node = snake->head; /* check if next hit body */
+		/* TODO: fix snake movement */
+		for (SnakeNode *node = snake->head->next->next; /* check if next hit body */
 				node != snake->tail;
 				node = node->next)
 			if (node->row == next_move->row &&

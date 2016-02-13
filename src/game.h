@@ -1,8 +1,8 @@
 #ifndef _GAME_H
 #define _GAME_H
 
-#define STAT_SCORE_COL_PERCENTAGE 0.2
-#define STAT_HIGH_COL_PERCENTAGE 0.6
+#define STAT_SCORE_COL_PERCENTAGE 0.1
+#define STAT_HIGH_COL_PERCENTAGE 0.5
 
 typedef struct _game_info GameInfo;
 struct _game_info {
