@@ -4,10 +4,10 @@
 void
 game_info_init(GameInfo *gameinfo)
 {
-	gameinfo->map = newwin(LINES - 2, COLS, 3, 1);
+	gameinfo->map = newwin(LINES - 1, COLS, 1, 0);
 	wborder(gameinfo->map, '#', '#', '#', '#',
 			'#', '#', '#', '#');
-	gameinfo->stat = newwin(1, COLS, 2, 1);
+	gameinfo->stat = newwin(1, COLS, 0, 1);
 }
 
 void
@@ -20,7 +20,7 @@ game_stat_reset(GameStat *stat)
 void
 game_stat_print_score(void)
 {
-	wmove(gameinfo.stat, 2, stat.col * STAT_SCORE_COL_PERCENTAGE);
+	wmove(gameinfo.stat, 0, stat.col * STAT_SCORE_COL_PERCENTAGE);
 	wprintw(gameinfo.stat, "                  ");
 	wprintw(gameinfo.stat, "Score: %lu", gamestat.score);
 	wmove(gameinfo.stat, 0, 0);
@@ -29,7 +29,7 @@ game_stat_print_score(void)
 void
 game_stat_print_highscore(void)
 {
-	wmove(gameinfo.stat, 2, stat.col * STAT_HIGH_COL_PERCENTAGE);
+	wmove(gameinfo.stat, 0, stat.col * STAT_HIGH_COL_PERCENTAGE);
 	wprintw(gameinfo.stat, "                  ");
 	wprintw(gameinfo.stat, "Highscore: %lu", gamestat.highscore);
 	wmove(gameinfo.stat, 0, 0);

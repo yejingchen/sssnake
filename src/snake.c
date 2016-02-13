@@ -90,6 +90,8 @@ snake_append_head(Snake *snake, SnakeNode *node)
 	}
 
 	/* append */
+	if (snake->length == 0)
+		snake->tail = node;
 	snake->head = node;
 
 	/* after appending */
@@ -103,7 +105,11 @@ void
 snake_move(Snake *snake, enum SnakeDir dir)
 {
 	SnakeNode *node = snake->tail;
-	mvwdelch(gameinfo.map, node->row, node->col);
+	/* mvwdelch(gameinfo.map, node->row, node->col); */
+	/* Don't do what is on above because it cause characters on the right to 
+	 * go left
+	 */
+	mvwprintw(gameinfo.map, node->row, node->col, " ");
 	mvwprintw(gameinfo.map, snake->head->row, snake->head->col, "%c",
 			SNAKE_BODY_CHAR);
 

@@ -84,6 +84,8 @@ gaming(void)
 			case 'd':
 				dir = RIGHT;
 				break;
+			default:
+				;
 		}
 
 		next_move = gaming_get_next_snake_node(snake, dir);
@@ -107,7 +109,7 @@ gaming(void)
 				node != snake->tail;
 				node = node->next)
 			if (node->row == next_move->row &&
-					node->col == next_move->col) { /* next hit body */
+					node->col == next_move->col) { /* check if next hit body */
 				game_continue = 0;
 				goto frame_end;
 			}
