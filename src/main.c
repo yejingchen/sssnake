@@ -17,6 +17,7 @@ int main()
 	game_win_info_fill(gameinfo.map, &map);
 	game_win_info_fill(gameinfo.stat, &stat);
 	game_win_info_fill(gameinfo.gameover, &gameover);
+	game_win_info_fill(gameinfo.instruction, &instruction);
 	wtimeout(gameinfo.map, 300);
 
 	gaming_main();

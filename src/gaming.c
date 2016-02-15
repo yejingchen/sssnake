@@ -2,6 +2,10 @@
 #include "snake.h"
 #include "gaming.h"
 
+#define GAMING_DIED 0
+#define GAMING_USER_QUIT 1
+#define GAMING_RESTART 2
+
 static SnakeNode *
 gaming_get_next_snake_node(Snake *snake, enum SnakeDir dir)
 {
@@ -41,32 +45,44 @@ gaming_main(void)
 		werase(gameinfo.map);
 		wborder(gameinfo.map, '#', '#', '#', '#',
 			'#', '#', '#', '#');
-		gaming();
-		game_over_screen();
+		game_instru_screen();
 
-		do {
-			c = wgetch(gameinfo.map);
-			switch (c) {
-				case '\n':
-					play_again = 1;
-					break;
-				case 'q':
-					play_again = 0;
-					break;
-				default:
-					play_again = -1;
-			}
-		} while (play_again == -1);
+		/* launch the game and get return value */
+		switch(gaming()) {
+			case GAMING_DIED:
+				game_over_screen();
+				do {
+					c = wgetch(gameinfo.map);
+					switch (c) {
+						case '\n':
+							play_again = 1;
+							break;
+						case 'q':
+							play_again = 0;
+							break;
+						default:
+							play_again = -1;
+					}
+				} while (play_again == -1);
+				break;
+			case GAMING_USER_QUIT:
+				play_again = 0;
+				break;
+			case GAMING_RESTART:
+				play_again = 1;
+				break;
+		}
 	}
 }
 
-void
+int
 gaming(void)
 {
 	Snake *snake;
 	snake = snake_new();
 
 	int c, game_continue = 1;
+	int ret;
 
 	SnakeNode *next_move; /* free after use */
 	enum SnakeDir dir = RIGHT;
@@ -87,6 +103,14 @@ gaming(void)
 				break;
 			case 'd':
 				dir = RIGHT;
+				break;
+			case 'q':
+				ret = GAMING_USER_QUIT;
+				goto game_end;
+				break;
+			case '\n':
+				ret = GAMING_RESTART;
+				goto game_end;
 				break;
 		}
 
@@ -120,11 +144,17 @@ gaming(void)
 
 		snake_move(snake, dir);
 
-		frame_end:
+frame_end:
 		snake_node_free(next_move);
 		wrefresh(gameinfo.map);
 		wrefresh(gameinfo.stat);
+
+		if (game_continue == 0)
+			ret = GAMING_DIED;
 	}
 
+game_end:
 	snake_free(snake);
+
+	return ret;
 }

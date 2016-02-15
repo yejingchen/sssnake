@@ -2,6 +2,6 @@
 #define _GAMING_H
 
 void gaming_main(void);
-void gaming(void);
+int gaming(void);
 
 #endif /* _GAMING_H */

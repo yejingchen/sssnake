@@ -5,11 +5,10 @@
 void
 game_info_init(GameInfo *gameinfo)
 {
-	gameinfo->map = newwin(LINES - 1, COLS, 1, 0);
-
+	gameinfo->map = newwin(LINES - 2, COLS, 1, 0);
 	gameinfo->stat = newwin(1, COLS, 0, 1);
-
 	gameinfo->gameover = newwin(10, 40, (LINES - 10) / 2, (COLS - 40) / 2);
+	gameinfo->instruction = newwin(1, COLS, LINES - 1, 0);
 }
 
 void
@@ -81,4 +80,12 @@ game_over_screen(void)
 			'#', '#', '#', '#');
 
 	wrefresh(gameinfo.gameover);
+}
+
+void
+game_instru_screen(void)
+{
+	mvwprintw(gameinfo.instruction, 0, 2,
+			"WASD: Move  q: quit  Enter: restart");
+	wrefresh(gameinfo.instruction);
 }
