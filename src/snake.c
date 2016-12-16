@@ -72,6 +72,7 @@ snake_free(Snake *snake)
 		snake_node_free(node);
 		node = next;
 	}
+	free(snake);
 }
 
 void

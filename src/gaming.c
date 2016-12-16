@@ -155,6 +155,7 @@ frame_end:
 
 game_end:
 	snake_free(snake);
+    food_free(food);
 
 	return ret;
 }

@@ -33,6 +33,12 @@ food_renew(Food *food)
 	mvwprintw(gameinfo.map, food->row, food->col, "%c", FOOD_CHAR);
 }
 
+void
+food_free(Food *food)
+{
+	free(food);
+}
+
 int
 food_get_row(const Food *f)
 {
