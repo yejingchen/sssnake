@@ -6,6 +6,7 @@ typedef struct _food Food;
 
 Food *food_new(void);
 void food_renew(Food *food);
+void food_free(Food *food);
 
 int food_get_row(const Food *f);
 int food_get_col(const Food *f);
