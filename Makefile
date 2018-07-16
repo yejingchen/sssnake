@@ -3,10 +3,10 @@ CC=clang
 default: sssnake
 
 sssnake: src/main.c src/snake.c src/food.c src/game.c src/gaming.c
-	${CC} $+ -o $@ -lncurses -Wall
+	${CC} $+ -o $@ -lcurses -Wall
 
 debug: src/main.c src/snake.c src/food.c src/game.c src/gaming.c
-	${CC} $+ -o $@ -lncurses -Wall -g
+	${CC} $+ -o $@ -lcurses -Wall -g
 
 clear:
 	if [ -f sssnake ]; then rm sssnake; fi

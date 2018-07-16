@@ -1,4 +1,4 @@
-#include <ncurses.h>
+#include <curses.h>
 #include "snake.h"
 #include "game.h"
 #include "food.h"
@@ -6,7 +6,7 @@
 
 int main()
 {
-	/* ncurses init */
+	/* curses init */
 	initscr();
 	noecho();
 	cbreak();

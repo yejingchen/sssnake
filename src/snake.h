@@ -1,7 +1,7 @@
 #ifndef _SNAKE_H
 #define _SNAKE_H
 
-#include <ncurses.h>
+#include <curses.h>
 #include "food.h"
 #include "game.h"
 

@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <ncurses.h>
+#include <curses.h>
 #include "food.h"
 
 #define FOOD_CHAR ('$')
