@@ -2,3 +2,4 @@ sssnake
 *.swp
 *.o
 debug
+build/
